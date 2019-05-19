@@ -33,10 +33,10 @@ public class Order implements Serializable{
 		
 		
 		@NotBlank
-		private float totalPrice;
+		private String totalPrice;
 		
 		@NotBlank
-		private int customerId;
+		private String customerId;
 		
 		@Column(nullable = false)
 		@Temporal(TemporalType.TIMESTAMP)
@@ -47,6 +47,37 @@ public class Order implements Serializable{
 		@Temporal(TemporalType.TIMESTAMP)
 		@LastModifiedDate
 		private Date updateAt;
+		
+		@NotBlank
+		private String productName;
+		@NotBlank
+		private String price;
+		@NotBlank 
+		private String quantity;
+
+		public String getProductName() {
+			return productName;
+		}
+
+		public void setProductName(String productName) {
+			this.productName = productName;
+		}
+
+		public String getPrice() {
+			return price;
+		}
+
+		public void setPrice(String price) {
+			this.price = price;
+		}
+
+		public String getQuantity() {
+			return quantity;
+		}
+
+		public void setQuantity(String quantity) {
+			this.quantity = quantity;
+		}
 
 		public long getOrderId() {
 			return orderId;
@@ -72,19 +103,19 @@ public class Order implements Serializable{
 			this.updateAt = updateAt;
 		}
 
-		public float getTotalPrice() {
+		public    String getTotalPrice() {
 			return totalPrice;
 		}
 
-		public void setTotalPrice(float totalPrice) {
+		public void setTotalPrice( String totalPrice) {
 			this.totalPrice = totalPrice;
 		}
 
-		public int getCustomerId() {
+		public String getCustomerId() {
 			return customerId;
 		}
 
-		public void setCustomerId(int customerId) {
+		public void setCustomerId(String customerId) {
 			this.customerId = customerId;
 		}
 
