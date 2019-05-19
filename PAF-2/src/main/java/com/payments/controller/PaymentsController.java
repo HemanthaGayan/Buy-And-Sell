@@ -1,4 +1,4 @@
-package com.example.payments.controller;
+package com.payments.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,16 +15,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.payments.exception.ResourceNotFoundException;
-import com.example.payments.model.Payments;
-import com.example.payments.repository.PaymentRepository;
+import com.payments.exception.ResourceNotFoundException;
+import com.payments.model.Payments;
+import com.payments.repo.PaymentsRepo;
+import com.payments.repo.PaymentsRepo;
 
 @RestController
 @RequestMapping("/api/v1")
 public class PaymentsController {
 
 	@Autowired
-	private PaymentRepository paymentRepository;
+	private PaymentsRepo paymentRepository;
 	
 	@GetMapping("/payments")
 	public List<Payments> getAllPayments(){
