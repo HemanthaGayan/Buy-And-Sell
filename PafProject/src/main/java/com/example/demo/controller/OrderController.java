@@ -60,6 +60,18 @@ public class OrderController {
 	        final Order updatedOrder = orderRepository.save(order);
 	        return ResponseEntity.ok(updatedOrder);
 	   }
+	
+	@DeleteMapping("/delete/{orderid}")
+		public Map<String, Boolean> deleteOrder(@PathVariable(value="orderid") Long orderid)throws Exception{
+			
+			Order order = orderRepository.findById(orderid).orElseThrow(() -> new ResourceNotFoundException("User not found on :: "+ orderid));
+			
+			
+			orderRepository.delete(order);
+			
+			Map<String, Boolean> response = new HashMap<>();
+			response.put("deleted", true);
+			return response;
 	 
 	 
 	
