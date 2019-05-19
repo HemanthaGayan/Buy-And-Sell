@@ -2,10 +2,9 @@ package com.naveenan.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -15,11 +14,12 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String username;
     private String email; 
     private String password;
+    @Transient
+    private String passwordConfirm;
     
 	public User() {
 
@@ -31,6 +31,7 @@ public class User {
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.passwordConfirm = passwordConfirm;
 	}
 	public long getId() {
 		return id;
@@ -56,12 +57,17 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
+	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
-				+"]";
+				+ ", passwordConfirm=" + passwordConfirm + "]";
 	}
 	
 	

@@ -16,34 +16,33 @@ import com.naveenan.demo.model.User;
 import com.naveenan.demo.repository.UserRepository;
 
 @RestController
-@RequestMapping("/api")
 public class UserController {
 	
 	@Autowired 
 	UserRepository repository;
 		
-	@PostMapping("/adduser")
-	public User addUser(User user) {
+	@PostMapping("/user")
+	public User addAlien(User user) {
 		
 		repository.save(user);
 		return user;
 	}
 	
 	
-	  @GetMapping("/allusers") 
+	  @GetMapping("/users") 
 	  public List<User> getUsers() {
 	  
 		  return repository.findAll(); 
 	  }
 	  
-	  @RequestMapping("/userbyid/{id}")
-		public Optional<User> getUser(@PathVariable("id") int id) {
+	  @RequestMapping("/user/{id}")
+		public Optional<User> getAlien(@PathVariable("id") int id) {
 			
 			return repository.findById((long) id);
 		}
 	  
-	  @DeleteMapping("/deleteuser/{id}")
-		public String deleteUSer(@PathVariable int id) {
+	  @DeleteMapping("/user/{id}")
+		public String deleteAlien(@PathVariable int id) {
 			
 		  User user = repository.getOne((long) id);
 			repository.delete(user);
@@ -51,8 +50,8 @@ public class UserController {
 			return "Deleted";
 		}
 	  
-	  @PutMapping("/updateuser/{id}")
-		public User saveOrUpdateUser( User user) {
+	  @PutMapping("/user")
+		public User saveOrUpdateAlien( User user) {
 			
 			repository.save(user);
 			return user;

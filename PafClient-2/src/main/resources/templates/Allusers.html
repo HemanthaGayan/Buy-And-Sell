@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>All users</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/>
+
+</head>
+<body>
+<div class="container">
+	<div th:if="${not #lists.isEmpty(user)}">
+		<h1>All users</h1>
+		<table class="highlight">
+		<thead>
+			<tr>
+				<th>User ID</th>
+				<th>User Name</th>
+				<th>Email</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+				<tr th:each="user: ${user}">
+				<td th:text= "${user.id}"></td>
+				<td th:text= "${user.username}"></td>
+				<td th:text= "${user.email}"></td>			
+			</tr>
+		</tbody>
+		</table>
+	</div>
+	
+	<!-- <form method="post"action="#" th:action="@{/user/delete}"}">
+    	<input type="submit" value="All Users      " />
+	</form> -->
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Edit Users</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-6  col-sm-offset-2 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Edit User
+                           
+                        </h3>
+                 
+                    </div>
+                  
+                    <div class="panel-body">
+                        <form method="post" action="#" th:action="@{/user/updateuser}" th:object="${user}" id="signUp" role="form">
+                            <!--<div class="form-title " > user profile Form</div>-->
+                            <div class="form-group">
+                                <label for="txtFname"><span class="req">* </span>User ID: </label>
+                                <input class="form-control" type="text" name="user id:" id="txtFname" required="true" th:field="*{id}"  />
+                            </div>
+             
+                           
+                            <div class="form-group">
+                                <input class="btn btn-success btn-primary" type="submit" name="submit_reg"
+                                       value="Update Account"/>
+                    
+                              
+                            </div>
+                        </form>
+                         <form method="get" action="#" th:action="@{/user/allusers}">
+    									<input  class="btn btn-success btn-primary" type="submit" value="All Users      " />
+						</form>
+                         
+                       
+                    </div>                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
