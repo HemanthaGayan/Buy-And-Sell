@@ -1,17 +1,15 @@
-package com.example.payments;
+package com.payments;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-@EnableAutoConfiguration
-public class PafApplication {
+public class Paf2Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PafApplication.class, args);
+		SpringApplication.run(Paf2Application.class, args);
 	}
 
 }

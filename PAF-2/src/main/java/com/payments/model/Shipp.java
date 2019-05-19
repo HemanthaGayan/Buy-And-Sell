@@ -1,6 +1,4 @@
-package com.example.payments.ship.model;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+package com.payments.model;
 
 import java.util.Date;
 
@@ -12,45 +10,48 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 @Entity
-@Table(name = "Shippingd")
+@Table(name="ship")
 @EntityListeners(AuditingEntityListener.class)
-public class Shippingd {
-	
-	
-	private long shipmentId;
-	private String cartId;
+public class Shipp {
+
+	private long shipId;
+	private long orderId;
 	private Date date_shipped;
 	private double shipping_amount;
 	private boolean result;
+	private Date updatedAt;
 	
 	
-	 @Id
+	@Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
-	public long getShipmentId() {
-		return shipmentId;
+	public long getShipId() {
+		return shipId;
 	}
-	public void setShipmentId(long shipmentId) {
-		this.shipmentId = shipmentId;
-	}
-	
-	@Column( name="cartId" , nullable=false)
-	public String getCartId() {
-		return cartId;
-	}
-	public void setCartId(String cartId) {
-		this.cartId = cartId;
+	public void setShipId(long shipId) {
+		this.shipId = shipId;
 	}
 	
-	@Column( name="date_shipped" , nullable = false)
+	
+	@Column( name="orderId" , nullable=false)
+	public long getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(long orderId) {
+		this.orderId = orderId;
+	}
+	
+	@Column( name="date_shipped" , nullable = true)
 	public Date getDate_shipped() {
 		return date_shipped;
 	}
 	public void setDate_shipped(Date date_shipped) {
 		this.date_shipped = date_shipped;
 	}
-	
-	@Column( name="shipping_amount" , nullable = false)
+	@Column( name="shipping_amount" , nullable = true)
 	public double getShipping_amount() {
 		return shipping_amount;
 	}
@@ -58,7 +59,7 @@ public class Shippingd {
 		this.shipping_amount = shipping_amount;
 	}
 	
-	@Column( name = "result" , nullable= false)
+	@Column( name = "result" , nullable= true)
 	public boolean isResult() {
 		return result;
 	}
@@ -66,7 +67,13 @@ public class Shippingd {
 		this.result = result;
 	}
 	
-	
-	
 
+	@Column(name = "updated_at", nullable = true)
+    @LastModifiedDate
+	 public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 }

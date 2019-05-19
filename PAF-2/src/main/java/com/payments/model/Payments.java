@@ -1,7 +1,4 @@
-package com.example.payments.model;
-
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+package com.payments.model;
 
 import java.util.Date;
 
@@ -13,20 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 @Entity
 @Table(name = "payments")
 @EntityListeners(AuditingEntityListener.class)
 public class Payments {
-	
-	 private long paymentId;
-	 private String cusId;
-	 private String orderId;
-	 private Date pay_datatime;
-	 private double amount;
-	 private String method;
-	 private String cardNo;
-	 private boolean result;
-	 
+
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	 public long getPaymentId() {
@@ -48,7 +39,7 @@ public class Payments {
 	public String getOrderId() {
 		return orderId;
 	}
-	public void setCardId(String cartId) {
+	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
 	
@@ -76,7 +67,6 @@ public class Payments {
 	public void setMethod(String method) {
 		this.method = method;
 	}
-	
 	@Column(name="cardNo")
 	public String getCardNo() {
 		return cardNo;
@@ -84,8 +74,6 @@ public class Payments {
 	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
 	}
-	
-	
 	@Column(name="result" , nullable=true)
 	public boolean isResult() {
 		return result;
@@ -93,7 +81,12 @@ public class Payments {
 	public void setResult(boolean result) {
 		this.result = result;
 	}
-
-	 
-	 
+	private long paymentId;
+	 private String cusId;
+	 private String orderId;
+	 private Date pay_datatime;
+	 private double amount;
+	 private String method;
+	 private String cardNo;
+	 private boolean result;
 }
