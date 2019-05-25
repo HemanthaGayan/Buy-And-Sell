@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="boostrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="../boostrap/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            function validation(){
+                emptyCheck(pno,wrong); 
+            }
+            function emptyCheck(name,id) {
+var inputValue = document.getElementById(name);
+if (inputValue.value == "" || inputValue.value == null || inputValue.value == " ") {
+id.style.backgroundColor = "red";
+}else{
+id.style.backgroundColor = "";
+}
+
+}
+ function checkquantity(name){
+     
+ }
+        </script>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <h1>Three Equal Columns </h1>
+ <div class="row">
+ <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+ <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
+ <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+ </div>
+<hr> 
+<div class="row col-md-4 well">
+<h1>Product Management</h1>
+ 
+ </div>
+<hr> 
+        <div class="container">
+        <form action="" class="col-md-2" onSubmit="validation();" action="">
+             <div class="form-group">
+    <label for="pno">Product No:</label>
+    <input type="number" class="form-control" id="pno">
+    <span id="wrong">*</span>
+  </div>
+  <div class="form-group">
+    <label for="pno">Product Name:</label>
+    <input type="text" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pimage">Product Image:</label>
+    <input type="file" class="form-control" id="g">
+  </div>
+      <div class="form-group">
+    <label for="pri">Product Price:</label>
+    <input type="text" class="form-control" id="g">
+  </div>    
+   <div class="form-group ">
+    <label for="prqi">Product Quantity:</label>
+    <input type="text" class="form-control" id="a">
+  </div>
+             <div class="form-group">
+    <label for="pri">Product Brand:</label>
+    <input type="text" class="form-control" id="g">
+  </div>
+  <div class="form-group form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+            </div>
+    </body>
+    
+</html>
